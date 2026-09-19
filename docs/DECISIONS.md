@@ -207,3 +207,19 @@ This keeps transitions and unlock rules explicit, while allowing the UI to read 
 - safe fallback to a clean default state
 
 State is intentionally limited to data and local browser progress; actual drag, hit testing, and puzzle validation remain separate from the store and are deferred to the interaction layer.
+
+## ADR-017 — Generic puzzle engine with pure hit testing
+
+Status: Accepted
+
+Phase 4 introduces a single reusable puzzle interaction engine that manages drag and tap interactions without per-puzzle branching.
+
+The engine is built around a generic rule set:
+
+- normalized board coordinates remain the source of truth
+- pointer movement is converted into board-relative positions and clamped to the board bounds
+- tile selection and target tapping share the same placement evaluation path
+- snap validation uses overlap ratio or center distance tolerance
+- success and failure feedback are emitted through shared UI states
+
+This keeps the interaction layer deterministic and testable. The geometry and placement logic are pure enough to unit-test without rendering React, while the UI layer remains responsible only for presentation and event wiring.

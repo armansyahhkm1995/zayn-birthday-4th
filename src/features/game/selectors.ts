@@ -2,6 +2,8 @@ import { stageDefinitions } from "../../data/stages";
 import type { GameProgress, PuzzleId, StageId } from "../../types/game";
 import { getNextStage } from "./helpers";
 
+const EMPTY_PIECES: PuzzleId[] = [];
+
 export function selectCurrentStage(state: { currentStageId: StageId }) {
   return (
     stageDefinitions.find((stage) => stage.id === state.currentStageId) ??
@@ -16,7 +18,7 @@ export function selectCurrentPuzzle(
 }
 
 export function selectPuzzleProgress(state: GameProgress, puzzleId: PuzzleId) {
-  const placed = state.placedPieceIds[puzzleId] ?? [];
+  const placed = state.placedPieceIds[puzzleId] ?? EMPTY_PIECES;
   const totalPieces = state.placedPieceIds[puzzleId]?.length ?? 0;
   return {
     placed,
