@@ -141,10 +141,18 @@ export const useGameStore = create<GameStore>()(
           return;
         }
 
+        const currentState = get();
+        const nextUnlockedMemoryIds = stage.unlocksMemoryId
+          ? currentState.unlockedMemoryIds.includes(stage.unlocksMemoryId)
+            ? currentState.unlockedMemoryIds
+            : [...currentState.unlockedMemoryIds, stage.unlocksMemoryId]
+          : currentState.unlockedMemoryIds;
+
         set({
           currentStageId: stageId,
           activePuzzleId: stage.puzzleId ?? getActivePuzzleIdForStage(stageId),
           selectedPieceId: null,
+          unlockedMemoryIds: nextUnlockedMemoryIds,
           lastUpdatedAt: Date.now(),
         });
       },
