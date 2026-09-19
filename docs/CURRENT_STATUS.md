@@ -2,13 +2,14 @@
 
 ## Current phase
 
-Not started.
+Phase 1 — Foundation complete.
 
 ## Completed
 
-- [ ] Next.js scaffold
-- [ ] Tailwind setup
-- [ ] Design tokens
+- [x] Next.js scaffold
+- [x] Tailwind setup
+- [x] Design tokens
+- [x] Mobile application shell
 - [ ] Reusable components
 - [ ] Game store
 - [ ] Puzzle engine
@@ -21,12 +22,12 @@ Not started.
 - [ ] Letter
 - [ ] Persistence
 - [ ] Loading and error states
-- [ ] Tests
+- [x] Tests
 
 ## Active task
 
-None.
+Phase 2 — Reusable UI and screen primitives.
 
 ## Known issues
 
-None.
+- Vitest emits a non-blocking Vite config-loader warning when using a TypeScript config in a non-module package; this does not affect test execution or the project build.

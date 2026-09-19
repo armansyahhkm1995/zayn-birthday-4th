@@ -127,3 +127,19 @@ Folders:
 - audio
 
 Asset filenames use lowercase kebab-case.
+
+## ADR-013 — Foundation shell and design tokens
+
+Status: Accepted
+
+Phase 1 establishes the responsive mobile application shell and the shared visual system used across all later screens.
+
+The foundation includes:
+
+- Outfit font via `next/font/google`
+- CSS variables for ocean, navy, yellow, coral, green, spacing, radii, shadows, and safe-area insets
+- A portrait-first mobile shell using a 390×844-inspired layout baseline
+- A reusable underwater background layer that does not require external assets
+- Layout primitives for container and screen composition
+
+This keeps color, spacing, and posture decisions centralized before puzzle logic is introduced.
