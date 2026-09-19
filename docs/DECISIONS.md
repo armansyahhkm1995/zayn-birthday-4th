@@ -143,3 +143,22 @@ The foundation includes:
 - Layout primitives for container and screen composition
 
 This keeps color, spacing, and posture decisions centralized before puzzle logic is introduced.
+
+## ADR-014 — Figma-accurate puzzle definitions with normalized geometry
+
+Status: Accepted
+
+Puzzle content is defined as typed data rather than a mix of raw coordinates and component logic.
+
+Each puzzle now supports:
+
+- `boardEmpty`
+- optional `boardCompleted`
+- `tileImage`
+- `pieceImage`
+- optional `targetMask`
+- normalized `home` and `target` rectangles
+
+This ensures the runtime never relies on raw Figma pixel coordinates. Geometry is converted into normalized values relative to board width and height, which preserves responsive scaling across device sizes and keeps the puzzle content reusable across themes.
+
+The separation between tray tile art and draggable art also keeps UI assets aligned with the product requirement: card-like tray tiles are never used as the moveable puzzle pieces.

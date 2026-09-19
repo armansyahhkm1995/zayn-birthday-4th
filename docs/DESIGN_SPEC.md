@@ -157,11 +157,56 @@ Rules:
 - Use `contain` for transparent puzzle pieces
 - Portrait is the supported game orientation
 
+## Puzzle data contract
+
+Every puzzle definition is stored in typed data and follows this model:
+
+```ts
+type NormalizedRect = {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+};
+
+type PuzzlePieceDefinition = {
+  id: string;
+  tileImage: string;
+  pieceImage: string;
+  targetMask?: string;
+  home: NormalizedRect;
+  target: NormalizedRect;
+};
+
+type PuzzleDefinition = {
+  id: string;
+  boardEmpty: string;
+  boardCompleted?: string;
+  pieces: PuzzlePieceDefinition[];
+};
+```
+
+Rules:
+
+- Never store raw Figma pixel coordinates in runtime data.
+- Convert all board, home, and target positions to normalized fractions of the board width and height.
+- `boardEmpty` is the empty board art used for the current puzzle state.
+- `boardCompleted` is the optional solved state of the board.
+- `tileImage` is the tray or selection asset, not the draggable illustration.
+- `pieceImage` is the transparent draggable illustration asset.
+- `targetMask` is an optional SVG or mask asset used to visualize a target slot without becoming interactive content.
+- `home` describes the resting position of each piece in the tray or home area.
+- `target` describes the solved snap location on the board, normalized within 0–1.
+- `width` and `height` inside each rect define the object size relative to the board.
+
 ## Asset usage
 
 - Backgrounds: WebP
 - Photos: WebP
-- Puzzle pieces: transparent PNG
+- Puzzle board states: PNG or WebP
+- Tray tile assets: PNG
+- Draggable puzzle illustrations: transparent PNG
+- Optional target masks: SVG or transparent PNG
 - Icons: SVG where available
 - Audio: MP3
 

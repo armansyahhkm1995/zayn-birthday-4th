@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase 1 — Foundation complete.
+Phase 1 — Foundation complete, with Figma-driven puzzle contract added.
 
 ## Completed
 
@@ -10,6 +10,8 @@ Phase 1 — Foundation complete.
 - [x] Tailwind setup
 - [x] Design tokens
 - [x] Mobile application shell
+- [x] Typed puzzle contract with normalized geometry
+- [x] Puzzle asset model for board, tray, illustration, and optional target mask
 - [ ] Reusable components
 - [ ] Game store
 - [ ] Puzzle engine
@@ -30,4 +32,4 @@ Phase 2 — Reusable UI and screen primitives.
 
 ## Known issues
 
-- Vitest emits a non-blocking Vite config-loader warning when using a TypeScript config in a non-module package; this does not affect test execution or the project build.
+- Vitest emits a non-blocking Vite config-loader warning when using a TypeScript config in a non-module package; this does not affect test execution, linting, or the production build.
