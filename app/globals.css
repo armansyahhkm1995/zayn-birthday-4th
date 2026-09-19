@@ -10,6 +10,7 @@
   --color-yellow: #ffc928;
   --color-coral: #ff5964;
   --color-green: #2dbe7f;
+  --color-disabled: #cbd2d8;
   --color-surface: rgba(255, 255, 255, 0.16);
   --color-surface-strong: rgba(255, 255, 255, 0.7);
   --color-soft-shadow: rgba(13, 43, 69, 0.18);
@@ -66,4 +67,37 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  15% {
+    transform: translateX(-4px) rotate(-1deg);
+  }
+  30% {
+    transform: translateX(4px) rotate(1deg);
+  }
+  45% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  60% {
+    transform: translateX(3px) rotate(1deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

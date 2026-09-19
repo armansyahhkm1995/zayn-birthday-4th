@@ -2,7 +2,7 @@
 
 ## Current phase
 
-Phase 1 — Foundation complete, with Figma-driven puzzle contract added.
+Phase 2 — Reusable presentational components complete.
 
 ## Completed
 
@@ -12,7 +12,7 @@ Phase 1 — Foundation complete, with Figma-driven puzzle contract added.
 - [x] Mobile application shell
 - [x] Typed puzzle contract with normalized geometry
 - [x] Puzzle asset model for board, tray, illustration, and optional target mask
-- [ ] Reusable components
+- [x] Reusable components
 - [ ] Game store
 - [ ] Puzzle engine
 - [ ] Puzzle one
@@ -28,7 +28,7 @@ Phase 1 — Foundation complete, with Figma-driven puzzle contract added.
 
 ## Active task
 
-Phase 2 — Reusable UI and screen primitives.
+Phase 3 — Game data and state scaffolding.
 
 ## Known issues
 

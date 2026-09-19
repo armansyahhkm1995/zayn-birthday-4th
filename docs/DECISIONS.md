@@ -162,3 +162,24 @@ Each puzzle now supports:
 This ensures the runtime never relies on raw Figma pixel coordinates. Geometry is converted into normalized values relative to board width and height, which preserves responsive scaling across device sizes and keeps the puzzle content reusable across themes.
 
 The separation between tray tile art and draggable art also keeps UI assets aligned with the product requirement: card-like tray tiles are never used as the moveable puzzle pieces.
+
+## ADR-015 — Presentational component library for the puzzle UI
+
+Status: Accepted
+
+Phase 2 focuses on reusable, stateless presentation components rather than game behavior.
+
+The library includes:
+
+- `Button`
+- `PuzzleBoard`
+- `PuzzleTrayTile`
+- `PuzzlePiece`
+- `PuzzleTarget`
+- `StateBadge`
+- `ProgressStepper`
+- `PhotoCard`
+- `FeedbackMessage`
+- `ScreenShell`
+
+These components use typed props, design tokens, safe-area support, and real asset references while keeping validation, drag logic, and state persistence out of the UI layer.
