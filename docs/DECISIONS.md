@@ -183,3 +183,27 @@ The library includes:
 - `ScreenShell`
 
 These components use typed props, design tokens, safe-area support, and real asset references while keeping validation, drag logic, and state persistence out of the UI layer.
+
+## ADR-016 — Typed stage flow and local progress store
+
+Status: Accepted
+
+Phase 3 introduces a structured game model separated from the presentational layer.
+
+The game state is defined as:
+
+- `StageDefinition` for each route in the birthday flow
+- `MemoryDefinition` for unlockable memory content
+- `PuzzleDefinition` for each board, piece roster, and normalized geometry
+- `GameProgress` for current stage, placed pieces, completion, memory unlocks, sound setting, and update time
+- `PersistedGameState` for the versioned browser storage payload
+
+This keeps transitions and unlock rules explicit, while allowing the UI to read from a single typed source of truth. Store logic now includes:
+
+- stage navigation helpers
+- stage ordering and next/previous navigation
+- puzzle completion checks
+- localStorage hydration and migration
+- safe fallback to a clean default state
+
+State is intentionally limited to data and local browser progress; actual drag, hit testing, and puzzle validation remain separate from the store and are deferred to the interaction layer.
